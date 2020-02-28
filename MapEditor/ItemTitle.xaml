@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="MapEditor.TitleItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MapEditor"
+             mc:Ignorable="d" Width="800" HorizontalAlignment="Left" Height="53.767">
+    <StackPanel Name ="stackPanel" HorizontalAlignment="Left" Height="68" Margin="0,0,-59,0" VerticalAlignment="Top" Width="859" Orientation="Horizontal">
+        <local:ItemStaticKey Height="Auto" Width="745" Margin="0,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <!--<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock"/>-->
+
+    </StackPanel>
+</UserControl>
