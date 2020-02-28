@@ -29,13 +29,14 @@ namespace MapEditor
             DataManager manager = DataManager.Get();
             for (int i = 0; i < manager.AllKey.Count; i++)
             {
-                if (manager.AllKeyArrtibute[i] != KeyAtrribute.dynamic)
+                if (manager.AllKeyArrtibute[i] == KeyAtrribute.dynamic)
                 {
                     KeyRemove.Add(manager.AllKey[i] as string);
                 }
             }
-            RemovecomboBox.ItemsSource = KeyRemove;
             InitializeComponent();
+            this.RemovecomboBox.ItemsSource = KeyRemove;
+           
         }
 
         private void RemoveKey_Click(object sender, RoutedEventArgs e)
