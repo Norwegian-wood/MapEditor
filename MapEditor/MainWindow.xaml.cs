@@ -23,17 +23,20 @@ namespace MapEditor
     /// </summary>
     public partial class MainWindow : Window
     {
-        //UI;
         DataManager manager;
+        //UI;
+        public List<TreeViewItem> root { get; set; }
+
         //UI数据
 
         public ArrayList allDetailData = new ArrayList();
         public MainWindow()
         {
+            this.DataContext = this;
+            root = new List<TreeViewItem>();
             InitializeComponent();
             manager = DataManager.Get();
             manager.Init();
-            
             InitAll();
         }
         public void InitAll()
@@ -43,18 +46,26 @@ namespace MapEditor
         }
         public void InitTree()
         {
-            treeMap.Items.Clear();
+            root.Clear();
             int i = 0;
             foreach (var pair in manager.AllMapData)
             {
-                treeMap.Items.Add(pair.Key);
+                TreeViewItem father = new TreeViewItem();
+                father.DisplayMapName = pair.Key;
                 foreach (var pair2 in pair.Value)
                 {
-                    //(treeMap.Items[i] as TreeViewItem).Items.Add("test2");
-                    //(treeMap.ItemContainerGenerator.ContainerFromIndex(i) as TreeViewItem).Items.Add(pair2.Key);
+                    if (pair2.Key != pair.Key)
+                    {
+                        TreeViewItem child = new TreeViewItem();
+                        child.DisplayMapName = pair2.Key;
+                        child.parent = father;
+                        father.Children.Add(child);
+                    }
                 }
+                root.Add(father);
                 i++;
             }
+            manager.currentMapName = manager.currentResourceName = manager.AllMapData.First().Key;
         }
         public void InitMainUI()
         {
@@ -97,20 +108,37 @@ namespace MapEditor
             WModify windowModify = new WModify(this);
             windowModify.ShowDialog();
         }
-        private void treeMap_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            TreeViewItem item = this.treeMap.SelectedItem as TreeViewItem;
-            manager.currentResourceName = "dz_Map";
-            manager.currentMapName = "dz_Map";
-            //if (item != null)
-            //{
-            //    InitMainUI("dz_Map");
-            //}
-            //else
-            //{
-            //    InitMainUI("dz_Map_Main2");
-            //}
+            TreeViewItem item = this.treeView.SelectedItem as TreeViewItem;
+            if (item.parent == null)
+            {
+                manager.currentResourceName = item.DisplayMapName;
+            }
+            else
+            {
+                manager.currentResourceName = item.parent.DisplayMapName;
+            }
+            manager.currentMapName = item.DisplayMapName;
             
+        }
+
+        private void AddData_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> list = new List<string>();
+            for (int i = 0; i < manager.AllKey.Count; i++)
+            {
+                list.Add("0");
+            }
+            manager.AllMapData[manager.currentResourceName][manager.currentMapName].Add(list);
+            manager.WriteAll();
+            this.InitMainUI();
+        }
+
+        private void inputCurrent_Click(object sender, RoutedEventArgs e)
+        {
+            manager.ReadCurrent();
+            this.InitMainUI();
         }
     }
     //bindingData

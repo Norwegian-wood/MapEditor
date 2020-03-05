@@ -18,15 +18,27 @@
                 </Grid>
             </GroupBox>
 
-            <TreeView x:Name="treeMap" Height="437" SelectedItemChanged="treeMap_SelectedItemChanged"/>
+            <TreeView x:Name="treeView" Height="437" SelectedItemChanged="treeView_SelectedItemChanged" ItemsSource="{Binding root}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type local:TreeViewItem}" ItemsSource="{Binding Path=Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding DisplayMapName}"/>
+                            <StackPanel.ToolTip>
+                                <TextBlock Text="{Binding mapName}"/>
+                            </StackPanel.ToolTip>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
         </StackPanel>
         <StackPanel x:Name ="DetailPanel" HorizontalAlignment="Left" Height="312" Margin="185,225,0,0" VerticalAlignment="Top" Width="1159">
 
         </StackPanel>
-        <Button x:Name="inputCurrent" Content="导入当前" HorizontalAlignment="Left" Margin="243,96,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="inputCurrent" Content="导入当前" HorizontalAlignment="Left" Margin="243,96,0,0" VerticalAlignment="Top" Width="75" Click="inputCurrent_Click"/>
         <TextBlock x:Name="mapName" HorizontalAlignment="Left" Margin="243,31,0,0" TextWrapping="Wrap" Text="地图名称" VerticalAlignment="Top" Height="19" Width="75"/>
         <Image x:Name="mapImage" HorizontalAlignment="Left" Height="207" Margin="645,13,0,0" VerticalAlignment="Top" Width="226"/>
         <TextBlock x:Name="mapType" HorizontalAlignment="Left" Margin="243,64,0,0" TextWrapping="Wrap" Text="副本/大世界/相位副本" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="添加数据" HorizontalAlignment="Left" Margin="243,140,0,0" VerticalAlignment="Top" Width="75" Click="AddData_Click"/>
 
     </Grid>
 </Window>

@@ -29,3 +29,6 @@ D:\work\MapEditor\MapEditor\obj\Debug\ItemDynamicKey.g.cs
 D:\work\MapEditor\MapEditor\obj\Debug\ItemDynamicDetail.baml
 D:\work\MapEditor\MapEditor\obj\Debug\ItemDynamicKey.baml
 D:\work\MapEditor\MapEditor\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\work\MapEditor\MapEditor\bin\Debug\Newtonsoft.Json.dll
+D:\work\MapEditor\MapEditor\bin\Debug\Newtonsoft.Json.xml
+D:\work\MapEditor\MapEditor\obj\Debug\MapEditor.csproj.CopyComplete

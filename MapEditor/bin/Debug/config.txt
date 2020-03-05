@@ -1,0 +1,2 @@
+D:\work\nzx
+color blockNum MinHeight MaxHeight File Layer LocationX LocationY

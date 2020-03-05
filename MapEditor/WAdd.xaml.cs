@@ -51,6 +51,8 @@ namespace MapEditor
                     }
                 }
             }
+            //TODO:是否需要保存按钮
+            manager.WriteAll();
             window.InitAll();
         }
     }

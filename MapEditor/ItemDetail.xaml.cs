@@ -29,17 +29,36 @@ namespace MapEditor
             InitializeComponent() ;
             InitUI(this.index);
         }
+        public DetailItem()
+        {
+            index = -1;
+            InitializeComponent();
+            InitUI(this.index);
+        }
         public void InitUI(int lineIndex = 0)
         {
             DataManager manager = DataManager.Get();
-            this.blockNum.SetBinding(TextBlock.TextProperty,new Binding("blockNum") { Source = manager.allDetailUIData[index]});
-            this.min.SetBinding(TextBlock.TextProperty, new Binding("min") { Source = manager.allDetailUIData[index] });
-            this.max.SetBinding(TextBlock.TextProperty, new Binding("max") { Source = manager.allDetailUIData[index] });
-            for (int i = manager.staticKeyNum; i < manager.AllKey.Count; i++)
+            if (index > 0)
             {
-                ItemDynamicDetail item = new ItemDynamicDetail();
-                item.Init(manager.AllMapData[manager.currentResourceName][manager.currentMapName][lineIndex][i]);
-                this.panel.Children.Add(item);
+                
+                this.blockNum.SetBinding(TextBlock.TextProperty, new Binding("blockNum") { Source = manager.allDetailUIData[index] });
+                this.min.SetBinding(TextBlock.TextProperty, new Binding("min") { Source = manager.allDetailUIData[index] });
+                this.max.SetBinding(TextBlock.TextProperty, new Binding("max") { Source = manager.allDetailUIData[index] });
+                for (int i = manager.staticKeyNum; i < manager.AllKey.Count; i++)
+                {
+                    ItemDynamicDetail item = new ItemDynamicDetail();
+                    item.Init(manager.AllMapData[manager.currentResourceName][manager.currentMapName][lineIndex][i]);
+                    this.panel.Children.Add(item);
+                }
+            }
+            else
+            {
+                for (int i = manager.staticKeyNum; i < manager.AllKey.Count; i++)
+                {
+                    ItemDynamicDetail item = new ItemDynamicDetail();
+                    //item.Init(manager.AllMapData[manager.currentResourceName][manager.currentMapName][lineIndex][i]);
+                    this.panel.Children.Add(item);
+                }
             }
         }
     }
