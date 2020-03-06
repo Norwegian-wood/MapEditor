@@ -40,14 +40,13 @@ namespace MapEditor
             DataManager manager = DataManager.Get();
             if (index > 0)
             {
-                
-                this.blockNum.SetBinding(TextBlock.TextProperty, new Binding("blockNum") { Source = manager.allDetailUIData[index] });
+                this.tmplID.SetBinding(TextBlock.TextProperty, new Binding("tmplID") { Source = manager.allDetailUIData[index] });
                 this.min.SetBinding(TextBlock.TextProperty, new Binding("min") { Source = manager.allDetailUIData[index] });
                 this.max.SetBinding(TextBlock.TextProperty, new Binding("max") { Source = manager.allDetailUIData[index] });
                 for (int i = manager.staticKeyNum; i < manager.AllKey.Count; i++)
                 {
                     ItemDynamicDetail item = new ItemDynamicDetail();
-                    item.Init(manager.AllMapData[manager.currentResourceName][manager.currentMapName][lineIndex][i]);
+                    //item.Init(manager.AllMapData[manager.currentResourceName][manager.currentMapName][lineIndex][i]);
                     this.panel.Children.Add(item);
                 }
             }

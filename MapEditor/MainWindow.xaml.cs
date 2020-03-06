@@ -120,7 +120,7 @@ namespace MapEditor
                 manager.currentResourceName = item.parent.DisplayMapName;
             }
             manager.currentMapName = item.DisplayMapName;
-            
+            InitMainUI();
         }
 
         private void AddData_Click(object sender, RoutedEventArgs e)

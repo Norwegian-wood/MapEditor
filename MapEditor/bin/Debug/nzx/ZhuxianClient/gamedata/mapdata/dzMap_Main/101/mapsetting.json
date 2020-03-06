@@ -1,0 +1,35 @@
+[
+  {
+    "tmplID": "1233",
+    "color": "FFFFFF",
+    "minHeight": "0",
+    "maxHeight": "100",
+    "file": "ddd",
+    "layer": "F1",
+    "locationX": "0.0",
+    "locationY": "1.1",
+    "key": "value"
+  },
+  {
+    "tmplID": "123533",
+    "color": "FFFFFF",
+    "minHeight": "0",
+    "maxHeight": "100",
+    "file": "ddd",
+    "layer": "F1",
+    "locationX": "0.0",
+    "locationY": "1.1",
+    "key": "value"
+  },
+  {
+    "tmplID": "122233",
+    "color": "FFFFFF",
+    "minHeight": "0",
+    "maxHeight": "100",
+    "file": "ddd",
+    "layer": "F1",
+    "locationX": "0.0",
+    "locationY": "1.1",
+    "key": "value"
+  }
+]

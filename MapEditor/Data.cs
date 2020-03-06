@@ -82,6 +82,10 @@ namespace Data
             }
             StreamReader sr = File.OpenText(configPath);
             string dirLine = sr.ReadLine();
+            if (dirLine == "debug")
+            {
+                dirLine = Directory.GetCurrentDirectory() + "\\nzx";
+            }
             if (!Directory.Exists(dirLine) ||!Directory.Exists(dirLine + "\\ZhuxianClient"))
             {
                 MessageBox.Show("游戏目录设置错误");
@@ -198,7 +202,7 @@ namespace Data
         {
             allDetailUIData.Clear();
             for (int i = 0; i < AllMapData[currentResourceName][currentMapName].Count; i++)
-            {
+             {
                 allDetailUIData.Add(new DetaiUIlData());
             }
         }
@@ -257,32 +261,32 @@ namespace Data
     public class DetaiUIlData : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public string blockNum ="1";
+        public string tmplID ="1";
         public string min ="1";
         public string max = "1";
         public string file= "1";
         public string locationX = "1";
         public string locationY = "1";
-        public ArrayList dynamicValue;
+        public List<string> dynamicValue = new List<string>();
         public DetaiUIlData()
         {
 
         }
         public void Init(List<string> InData)
         {
-            blockNum = InData[1] as string;
+            tmplID = InData[0] as string;
             min = InData[2] as string;
             max = InData[3] as string;
         }
-        public string BlockNum
+        public string TmplID
         {
-            get { return blockNum; }
+            get { return tmplID; }
             set
             {
-                blockNum = value;
+                tmplID = value;
                 if (this.PropertyChanged != null)
                 {
-                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("blockNum"));
+                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("tmplID"));
                 }
             }
 

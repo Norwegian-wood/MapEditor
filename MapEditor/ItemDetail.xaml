@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:MapEditor"
              mc:Ignorable="d" Height="43.724" HorizontalAlignment="Left" Width="1270.667">
     <StackPanel x:Name ="panel" HorizontalAlignment="Left" Height="100" Margin="10,10,0,-66" VerticalAlignment="Top" Width="1261" Orientation="Horizontal">
-        <TextBlock x:Name="color" TextWrapping="Wrap" Text="color" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="blockNum" TextWrapping="Wrap" Text="BlockNum" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tmplID" TextWrapping="Wrap" Text="模板ID" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="color" TextWrapping="Wrap" Text="color" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="min" TextWrapping="Wrap" Text="Min" Width="70" Margin="0,0,0,82" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock  TextWrapping="Wrap" Text="  -" Width="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="max" TextWrapping="Wrap" Text="Max" Width="70" Margin="0,0,0,82" HorizontalAlignment="Left" VerticalAlignment="Top"/>
