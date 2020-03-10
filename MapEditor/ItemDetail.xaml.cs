@@ -40,9 +40,9 @@ namespace MapEditor
             DataManager manager = DataManager.Get();
             if (index > 0)
             {
-                this.tmplID.SetBinding(TextBlock.TextProperty, new Binding("tmplID") { Source = manager.allDetailUIData[index] });
-                this.min.SetBinding(TextBlock.TextProperty, new Binding("min") { Source = manager.allDetailUIData[index] });
-                this.max.SetBinding(TextBlock.TextProperty, new Binding("max") { Source = manager.allDetailUIData[index] });
+                //this.tmplID.SetBinding(TextBlock.TextProperty, new Binding("tmplID") { Source = manager.allDetailUIData[index] });
+                //this.min.SetBinding(TextBlock.TextProperty, new Binding("min") { Source = manager.allDetailUIData[index] });
+                //this.max.SetBinding(TextBlock.TextProperty, new Binding("max") { Source = manager.allDetailUIData[index] });
                 for (int i = manager.staticKeyNum; i < manager.AllKey.Count; i++)
                 {
                     ItemDynamicDetail item = new ItemDynamicDetail();

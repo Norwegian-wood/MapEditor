@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:MapEditor"
              mc:Ignorable="d" Height="43.724" HorizontalAlignment="Left" Width="1270.667">
     <StackPanel x:Name ="panel" HorizontalAlignment="Left" Height="100" Margin="10,10,0,-66" VerticalAlignment="Top" Width="1261" Orientation="Horizontal">
-        <TextBlock x:Name="tmplID" TextWrapping="Wrap" Text="模板ID" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="color" TextWrapping="Wrap" Text="color" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="tmplID" TextWrapping="Wrap" Text="模板ID" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="color" TextWrapping="Wrap" Text="color" Width="63" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,30,0"/>
         <TextBox x:Name="min" TextWrapping="Wrap" Text="Min" Width="70" Margin="0,0,0,82" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock  TextWrapping="Wrap" Text="  -" Width="24" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="max" TextWrapping="Wrap" Text="Max" Width="70" Margin="0,0,0,82" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Name="file" TextWrapping="Wrap" Text="        FileExample" Width="125"/>
+        <TextBox Name="file" TextWrapping="Wrap" Text="FileExample" Width="82" Margin="30,0,10,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <ComboBox x:Name="layer" Width="116" Margin="0,0,0,82" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBoxItem Content="B2" />
             <ComboBoxItem Content="B1" />

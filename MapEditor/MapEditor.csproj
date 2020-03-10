@@ -80,6 +80,9 @@
     <Compile Include="WModify.xaml.cs">
       <DependentUpon>WModify.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WRemindSave.xaml.cs">
+      <DependentUpon>WRemindSave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WRemove.xaml.cs">
       <DependentUpon>WRemove.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WModify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WRemindSave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

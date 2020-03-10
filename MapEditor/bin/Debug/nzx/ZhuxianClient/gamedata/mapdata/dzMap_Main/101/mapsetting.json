@@ -7,8 +7,7 @@
     "file": "ddd",
     "layer": "F1",
     "locationX": "0.0",
-    "locationY": "1.1",
-    "key": "value"
+    "locationY": "1.1"
   },
   {
     "tmplID": "123533",
@@ -18,8 +17,7 @@
     "file": "ddd",
     "layer": "F1",
     "locationX": "0.0",
-    "locationY": "1.1",
-    "key": "value"
+    "locationY": "1.1"
   },
   {
     "tmplID": "122233",
@@ -29,7 +27,6 @@
     "file": "ddd",
     "layer": "F1",
     "locationX": "0.0",
-    "locationY": "1.1",
-    "key": "value"
+    "locationY": "1.1"
   }
 ]

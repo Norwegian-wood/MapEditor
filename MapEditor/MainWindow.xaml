@@ -39,6 +39,7 @@
         <Image x:Name="mapImage" HorizontalAlignment="Left" Height="207" Margin="645,13,0,0" VerticalAlignment="Top" Width="226"/>
         <TextBlock x:Name="mapType" HorizontalAlignment="Left" Margin="243,64,0,0" TextWrapping="Wrap" Text="副本/大世界/相位副本" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="添加数据" HorizontalAlignment="Left" Margin="243,140,0,0" VerticalAlignment="Top" Width="75" Click="AddData_Click"/>
+        <Button x:Name="button1" Content="保存数据" HorizontalAlignment="Left" Margin="361,140,0,0" VerticalAlignment="Top" Width="75" Click="SaveData_Click"/>
 
     </Grid>
 </Window>

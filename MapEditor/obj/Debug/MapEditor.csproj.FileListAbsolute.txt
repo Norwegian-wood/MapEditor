@@ -32,3 +32,5 @@ D:\work\MapEditor\MapEditor\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\work\MapEditor\MapEditor\bin\Debug\Newtonsoft.Json.dll
 D:\work\MapEditor\MapEditor\bin\Debug\Newtonsoft.Json.xml
 D:\work\MapEditor\MapEditor\obj\Debug\MapEditor.csproj.CopyComplete
+D:\work\MapEditor\MapEditor\obj\Debug\WRemindSave.g.cs
+D:\work\MapEditor\MapEditor\obj\Debug\WRemindSave.baml

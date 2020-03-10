@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows;
 using Newtonsoft.Json.Linq;
 
+
 namespace Data
 {
     public enum KeyAtrribute { staticReadOnly,staticKey,dynamic}
@@ -19,29 +20,22 @@ namespace Data
         public string currentResourceName = "dz_Map";
         public string currentMapName = "dz_Map";
 
-
         public int staticKeyNum = 8;
         public Dictionary<string, Dictionary<string, List<List<string>>>> AllMapData = new Dictionary<string, Dictionary<string, List<List<string>>>>();
         public List<string> AllKey = new List<string>();
         public List<KeyAtrribute> AllKeyArrtibute = new List<KeyAtrribute>();
-        public List<DetaiUIlData> allDetailUIData = new List<DetaiUIlData>();
+        //public List<DetaiUIlData> allDetailUIData = new List<DetaiUIlData>();
         //private Dictionary<string, string> TreeAtributes = new Dictionary<string, string>();
         // UIData uiData;
         public DataManager()
         {
-            for (int i = 0; i < staticKeyNum; i++)
-            {
-                AllKey.Add("StaticKey");
-                AllKeyArrtibute.Add(KeyAtrribute.staticKey);
-                
-            }
+            
             InitConfig();
             //uiData = new UIData();
         }
         //保存与初始化
         public void Init()
         {
-            
             //AllMapData.Add("dz_Map", new Dictionary<string, List<List<string>>>());
             ////MapAtrributes["dz_Map"].Add("dz_Map", new Dictionary<string, string>());
             //AllMapData["dz_Map"].Add("dz_Map", new List<List<string>>());
@@ -100,6 +94,7 @@ namespace Data
             foreach (string str in keys)
             {
                 AllKey.Add(str);
+                AllKeyArrtibute.Add(KeyAtrribute.staticKey);
             }
             staticKeyNum = AllKey.Count;
         }
@@ -123,6 +118,7 @@ namespace Data
             for (int i = AllKey.Count -1; i >=staticKeyNum ; i--)
             {
                 AllKey.RemoveAt(i);
+                AllKeyArrtibute.RemoveAt(i);
             }
             bool readSuccess = false;
             foreach (string Resourcedir in Directory.EnumerateDirectories(this.MapDir))
@@ -137,6 +133,7 @@ namespace Data
                         if (!AllKey.Contains(pair.Key))
                         {
                             AllKey.Add(pair.Key);
+                            AllKeyArrtibute.Add(KeyAtrribute.dynamic);
                         }
                     }
                     readSuccess = true;
@@ -198,22 +195,23 @@ namespace Data
 
             }
         }
-        public void PreInitMainUIData()
-        {
-            allDetailUIData.Clear();
-            for (int i = 0; i < AllMapData[currentResourceName][currentMapName].Count; i++)
-             {
-                allDetailUIData.Add(new DetaiUIlData());
-            }
-        }
+
+        //public void PreInitMainUIData()
+        //{
+        //    allDetailUIData.Clear();
+        //    for (int i = 0; i < AllMapData[currentResourceName][currentMapName].Count; i++)
+        //     {
+        //        allDetailUIData.Add(new DetaiUIlData());
+        //    }
+        //}
         public void InitMainUIData()
         {
-            for (int i = 0; i < AllMapData[currentResourceName][currentMapName].Count; i++)
-            {
-                allDetailUIData[i].Init(AllMapData[currentResourceName][currentMapName][i]);
-            }
+            //for (int i = 0; i < AllMapData[currentResourceName][currentMapName].Count; i++)
+            //{
+            //    allDetailUIData[i].Init(AllMapData[currentResourceName][currentMapName][i]);
+            //}
         }
-        private void WriteAMap(string resourceName,string MapName)
+        public void WriteAMap(string resourceName,string MapName)
         {
             string path = "";
             if (resourceName == MapName)

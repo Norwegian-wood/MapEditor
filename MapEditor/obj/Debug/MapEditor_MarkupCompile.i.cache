@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\work\MapEditor\MapEditor\App.xaml
-9-265738560
+10-1652414201
 
-16208720871
+1753235775
 14-1080579583
-ItemDetail.xaml;ItemDynamicDetail.xaml;ItemDynamicKey.xaml;ItemStaticKey.xaml;MainWindow.xaml;ItemTitle.xaml;WAdd.xaml;WModify.xaml;WRemove.xaml;
+ItemDetail.xaml;ItemDynamicDetail.xaml;ItemDynamicKey.xaml;ItemStaticKey.xaml;MainWindow.xaml;ItemTitle.xaml;WAdd.xaml;WModify.xaml;WRemindSave.xaml;WRemove.xaml;
 
 True
 

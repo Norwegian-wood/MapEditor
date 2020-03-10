@@ -66,6 +66,7 @@ namespace MapEditor
                 }
             }
             window.InitAll();
+            manager.WriteAll();
         }
     }
 }

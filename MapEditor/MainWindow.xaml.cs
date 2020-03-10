@@ -78,14 +78,14 @@ namespace MapEditor
           
             DetailPanel.Children.Add(new TitleItem());
 
-            manager.PreInitMainUIData();
+            //manager.PreInitMainUIData();
             //manager.InitMainUIData();
             for (int i = 0; i < manager.AllMapData[manager.currentResourceName][manager.currentMapName].Count;i++) 
             {
                 DetailItem item = new DetailItem(i);
                 DetailPanel.Children.Add(item);
             }
-            manager.InitMainUIData();
+            SetDetailData(manager.AllMapData[manager.currentResourceName][manager.currentMapName]);
 
         }
         private void InputAll_Click(object sender, RoutedEventArgs e)
@@ -110,6 +110,11 @@ namespace MapEditor
         }
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            List<List<string>> data;
+            if (CheckData(out data))
+            {
+
+            }
             TreeViewItem item = this.treeView.SelectedItem as TreeViewItem;
             if (item.parent == null)
             {
@@ -139,6 +144,103 @@ namespace MapEditor
         {
             manager.ReadCurrent();
             this.InitMainUI();
+        }
+
+        private void SaveData_Click(object sender, RoutedEventArgs e)
+        {
+            List<List<string>> data;
+            if (CheckData(out data))
+            {
+                SaveCurrentData(data);
+            }
+        }
+        public void SaveCurrentData(List<List<string>> data)
+        {
+            manager.AllMapData[manager.currentResourceName][manager.currentMapName] = data;
+            manager.WriteAMap(manager.currentResourceName, manager.currentMapName);
+        }
+        private bool CheckData(out List<List<string>> data)
+        {
+            data  = GetDetailData();
+            bool ifChange = false;
+            for (int i = 0; i < data.Count; i++)
+            {
+                for (int j = 0; j < data[i].Count; j++)
+                {
+                    if (data[i][j] != manager.AllMapData[manager.currentResourceName][manager.currentMapName][i][j])
+                    {
+                        ifChange = true;
+                        break;
+                    }
+                }
+            }
+            return ifChange;
+        }
+        public List<List<string>> GetDetailData()
+        {
+            List<List<string>> data = new List<List<string>>();
+            for (int i = 1; i < DetailPanel.Children.Count; i++)
+            {
+                List<string> row = new List<string>();
+                DetailItem item = DetailPanel.Children[i] as DetailItem;
+
+                foreach(var iter in item.panel.Children)
+                {
+                    TextBox box = null;
+                    ComboBox combo = null;
+                    ItemDynamicDetail DyDetail = null;
+                    box = iter as TextBox;
+                    combo = iter as ComboBox;
+                    DyDetail = iter as ItemDynamicDetail;
+                    if (box != null)
+                    {
+                        row.Add(box.Text);
+                    }
+                    else if (combo != null)
+                    {
+                        row.Add(combo.Text);
+                    }
+                    else if (DyDetail != null)
+                    {
+                        row.Add(DyDetail.content.Text);
+                    }
+                }
+                data.Add(row);
+            }
+            return data;
+        }
+        private void SetDetailData(List<List<string>> data)
+        {
+            for (int i = 1; i < DetailPanel.Children.Count; i++)
+            {
+                DetailItem row = DetailPanel.Children[i] as DetailItem;
+                int index = 0;
+                foreach (var item in row.panel.Children)
+                {
+                    TextBox box = null;
+                    ComboBox combo = null;
+                    ItemDynamicDetail DyDetail = null;
+                    string text = data[i - 1][index];
+                    box = item as TextBox;
+                    combo = item as ComboBox;
+                    DyDetail = item as ItemDynamicDetail;
+                    if (box != null)
+                    {
+                        box.Text = text;
+                        index++;
+                    }
+                    else if (combo != null)
+                    {
+                        combo.Text = text;
+                        index++;
+                    }
+                    else if (DyDetail != null)
+                    {
+                        DyDetail.content.Text = text;
+                        index++;
+                    }
+                }
+            }
         }
     }
     //bindingData

@@ -63,6 +63,7 @@ namespace MapEditor
                 }
             }
             window.InitAll();
+            manager.WriteAll();
         }
 
         private void Modify_SelectionChanged(object sender, SelectionChangedEventArgs e)
