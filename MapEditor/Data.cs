@@ -5,11 +5,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using Newtonsoft.Json.Linq;
+using System.Collections.ObjectModel;
 
-
-namespace Data
+namespace MapEditor
 {
     public enum KeyAtrribute { staticReadOnly,staticKey,dynamic}
+    public enum LayerEnum { B1, Ground, F1, F2, F3 }
     public class DataManager
     {
         static private DataManager _Manager = new DataManager();
@@ -27,10 +28,33 @@ namespace Data
         //public List<DetaiUIlData> allDetailUIData = new List<DetaiUIlData>();
         //private Dictionary<string, string> TreeAtributes = new Dictionary<string, string>();
         // UIData uiData;
+
+        public Dictionary<string, Dictionary<string, ObservableCollection<MapDataRow>>> AllMapDataNew = new Dictionary<string, Dictionary<string, ObservableCollection<MapDataRow>>>();
+        public ObservableCollection<MapDataRow> GetCurrentMapData()
+        {
+            return AllMapDataNew[currentResourceName][currentMapName];
+        }
+        public class MapDataRow
+        {
+            public string TmplID { get; set; }
+            public string ColorR { get; set; }
+            public string ColorG { get; set; }
+
+            public string ColorB { get; set; }
+
+            public string Zmin { get; set; }
+            public string Zmax { get; set; }
+            
+            public LayerEnum layer { get; set; }
+            
+            public string path { get; set; }
+        }
+
         public DataManager()
         {
             
             InitConfig();
+            
             //uiData = new UIData();
         }
         //保存与初始化
@@ -62,6 +86,8 @@ namespace Data
             //    AllMapData["dz_Map_Main2"]["dz_Map_Main2"].Add(temp2);
             //}
             ReadAll();
+            //测试用
+
             //treeMap.ItemsSource;
         }
         private void InitConfig()

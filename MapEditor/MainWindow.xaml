@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MapEditor"
+        xmlns:assembly="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="M图编辑器" Height="577.6" Width="1400">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="sexEnum" MethodName="GetValues" 
+                            ObjectType="{x:Type assembly:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:LayerEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="537" VerticalAlignment="Top" Width="180">
 
@@ -31,8 +40,26 @@
                 </TreeView.ItemTemplate>
             </TreeView>
         </StackPanel>
+ 
         <StackPanel x:Name ="DetailPanel" HorizontalAlignment="Left" Height="312" Margin="185,225,0,0" VerticalAlignment="Top" Width="1159">
-
+            <Grid>
+                <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ColorR" Width="80" Binding="{Binding ColorR}"/>
+                        <DataGridTextColumn Header="ColorG" Width="80" Binding="{Binding ColorG}"/>
+                        <DataGridTextColumn Header="ColorB" Width="80" Binding="{Binding ColorB}"/>
+                        <DataGridTextColumn Header="Zmin" Width="80" Binding="{Binding Zmin}"/>
+                        <DataGridTextColumn Header="Zmax" Width="80" Binding="{Binding Zmax}"/>
+                        <DataGridComboBoxColumn Width="80" Header="Layer" 
+                                        SelectedItemBinding="{Binding Layer}" 
+                                        ItemsSource="{Binding Source={StaticResource sexEnum}}"/>
+                        <DataGridCheckBoxColumn Header="Pass Exam?" Width="100" 
+                                        Binding="{Binding Pass}"/>
+                        <DataGridHyperlinkColumn Header="Email" Width="150" 
+                                         Binding="{Binding Email}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </StackPanel>
         <Button x:Name="inputCurrent" Content="导入当前" HorizontalAlignment="Left" Margin="243,96,0,0" VerticalAlignment="Top" Width="75" Click="inputCurrent_Click"/>
         <TextBlock x:Name="mapName" HorizontalAlignment="Left" Margin="243,31,0,0" TextWrapping="Wrap" Text="地图名称" VerticalAlignment="Top" Height="19" Width="75"/>
@@ -40,7 +67,7 @@
         <TextBlock x:Name="mapType" HorizontalAlignment="Left" Margin="243,64,0,0" TextWrapping="Wrap" Text="副本/大世界/相位副本" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="添加数据" HorizontalAlignment="Left" Margin="243,140,0,0" VerticalAlignment="Top" Width="75" Click="AddData_Click"/>
         <Button x:Name="button1" Content="保存数据" HorizontalAlignment="Left" Margin="361,140,0,0" VerticalAlignment="Top" Width="75" Click="SaveData_Click"/>
-
+        
     </Grid>
 </Window>
 

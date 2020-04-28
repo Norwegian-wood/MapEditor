@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\work\MapEditor\MapEditor\obj\Debug\
+H:\MapEditor-master\MapEditor\obj\Debug\
 MapEditor
 none
 false
 DEBUG;TRACE
-D:\work\MapEditor\MapEditor\App.xaml
+H:\MapEditor-master\MapEditor\App.xaml
 10-1652414201
 
 16-1593964585
-14-1080579583
+14-161953870
 ItemDetail.xaml;ItemDynamicDetail.xaml;ItemDynamicKey.xaml;ItemStaticKey.xaml;MainWindow.xaml;ItemTitle.xaml;WAdd.xaml;WModify.xaml;WRemindSave.xaml;WRemove.xaml;
 
 False
